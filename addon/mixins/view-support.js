@@ -21,7 +21,7 @@ export default Mixin.create({
 
   init() {
     this._super(...arguments);
-    let controllerProp = this.get('a') ? 'a' : `controller.${this.get('anchorQueryParam')}`;
+    let controllerProp = this.get('a') !== undefined ? 'a' : `controller.${this.get('anchorQueryParam')}`;
     this.addObserver(controllerProp, this, this._onQpChanged);
   },
 
