@@ -6,6 +6,7 @@ import {
 const {
   Mixin,
   run: {
+    next,
     scheduleOnce
   },
   computed: {
@@ -45,7 +46,7 @@ export default Mixin.create({
     let elem = $(`[data-${qp}="${qpVal}"]`);
     let offset = (elem && elem.offset && elem.offset()) ? elem.offset().top : null;
     if (offset) {
-      $(document).scrollTop(offset);
+      next(() => $(document).scrollTop(offset));
     }
   }
 });
